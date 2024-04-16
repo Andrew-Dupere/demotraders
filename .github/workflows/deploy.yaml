@@ -10,17 +10,12 @@ env:
 
 jobs:
   pull:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Pull changes from server
         run: |
-          ssh -o StrictHostKeyChecking=no ubuntu@18.117.180.117 "cd /home/ubuntu/kezan/apps/demotraders && git pull origin main"
+          ssh ubuntu@18.117.180.117 "cd /home/ubuntu/kezan/apps/demotraders && git pull origin main"
