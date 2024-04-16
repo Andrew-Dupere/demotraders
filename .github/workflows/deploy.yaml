@@ -1,14 +1,18 @@
-name: Deploy to Server
+name: Pull from Repo
 
 on:
   push:
     branches:
-      - main
+      - main  
 
 jobs:
-  deploy:
+  pull:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Pull changes from server
+        run: |
+          ssh ubuntu@your-server-ip "cd /path/to/your/repository && git pull origin main"
