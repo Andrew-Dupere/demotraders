@@ -1,0 +1,11 @@
+jobs:
+  pull:
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Pull changes from server
+        run: |
+          ssh 18.117.180.117 "cd /home/ubuntu/kezan/apps/demotraders && git pull origin main"
