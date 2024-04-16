@@ -1,26 +1,14 @@
-name: Pull from Repo
+name: Deploy to Server
 
 on:
   push:
     branches:
-      - main  
+      - main
 
 jobs:
-  pull:
+  deploy:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: Pull changes from server
-        run: |
-          git remote add server https://github.com/Andrew-Dupere/demotraders.git
-          git fetch server
-          git merge server/main
-
-      
-      - name: Push changes to server
-        run: |
-          git push origin main  
-
