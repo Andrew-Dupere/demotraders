@@ -3,7 +3,7 @@ name: Pull from Repo
 on:
   push:
     branches:
-      - main
+      - main  
 
 jobs:
   pull:
@@ -13,9 +13,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Pull changes from server
+      # - name: Pull changes from server
+      #   run: |
+      #     git remote add server https://github.com/Andrew-Dupere/demotraders.git
+      #     git fetch server
+      #     git merge server/main
+
+      
+      - name: Push changes to server
         run: |
-          git remote add server https://github.com/Andrew-Dupere/demotraders.git
-          git fetch server
-          git merge server/main
+          git push origin main  
 
