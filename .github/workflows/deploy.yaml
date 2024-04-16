@@ -3,7 +3,10 @@ name: Pull from Repo
 on:
   push:
     branches:
-      - main  
+      - main 
+
+env:
+  AWS_DEFAULT_REGION: us-east-1 
 
 jobs:
   pull:
