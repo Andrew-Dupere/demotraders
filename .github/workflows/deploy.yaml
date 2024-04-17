@@ -18,4 +18,4 @@ jobs:
 
       - name: Pull changes from server
         run: |
-          ssh ubuntu@18.117.180.117 "cd /home/ubuntu/kezan/apps/demotraders && git pull origin main"
+          ssh -vvv ubuntu@18.117.180.117 "cd /home/ubuntu/kezan/apps/demotraders && git pull origin main"
